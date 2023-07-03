@@ -34,9 +34,10 @@ public class DatasetService {
         for(int i=0; i<datasets.size(); i++){
             if(datasets.get(i).getId().equals(datasetUpdated.getId())) {
                 datasets.set(i, datasetUpdated);
+                return datasetUpdated;
             }
         }
-        return datasetUpdated;
+        return null;
     }
 
     public boolean deleteDataset(String datasetId){
