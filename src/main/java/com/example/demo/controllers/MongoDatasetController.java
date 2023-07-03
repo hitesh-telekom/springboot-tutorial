@@ -66,18 +66,15 @@ public class MongoDatasetController {
     @GetMapping("/query/createdBy")
     public ResponseEntity<?> getDatasetsFromCreatedBy(@RequestParam("createdBy") String createdBy){
         System.out.println("Fetching all databased with createdBY = " + createdBy);
-        List<Dataset> datasets = this.datasetRepository.findByCreatedBy(createdBy);
+        List<MongoDataset> datasets = this.datasetRepository.findByCreatedBy(createdBy);
         return ResponseEntity.ok(datasets);
     }
 
     @GetMapping("/query/name")
     public ResponseEntity<?> getDatasetsFromName(@RequestParam("name") String name){
         System.out.println("Fetching all databased with createdBY = " + name);
-        List<Dataset> datasets = this.datasetRepository.findByName(name);
+        List<MongoDataset> datasets = this.datasetRepository.findByName(name);
         return ResponseEntity.ok(datasets);
     }
-
-
-
 
 }

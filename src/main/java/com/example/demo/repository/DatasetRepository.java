@@ -10,9 +10,9 @@ import java.util.List;
 public interface DatasetRepository extends MongoRepository<MongoDataset, String> {
 
     @Query("{createdBy: '?0'}")
-    List<Dataset> findByCreatedBy(String createdBy);
+    List<MongoDataset> findByCreatedBy(String createdBy);
 
     @Query(value="{name: '?0'}", fields = "{'name':  1, 'id':  1}")
-    List<Dataset> findByName(String name);
+    List<MongoDataset> findByName(String name);
 
 }
