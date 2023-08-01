@@ -1,14 +1,21 @@
 package com.example.demo.models;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
+import org.springframework.data.mongodb.core.index.CompoundIndexes;
+import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document("dataset")
+@CompoundIndexes({
+        @CompoundIndex(name = "natco_properties", def = "{'natcoKey' : 1, 'natcoCode': 1}")
+})
 public class MongoDataset {
     @Id
     private String id;
     private String natcoCode;
     private String natcoKey;
+    @Indexed
     private String name;
     private String createdBy;
 
